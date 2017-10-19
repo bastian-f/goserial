@@ -93,6 +93,8 @@ func openPort(name string, baud int) (rwc io.ReadWriteCloser, err error) {
 	// Select raw mode
 	st.c_lflag &= ^C.tcflag_t(C.ICANON | C.ECHO | C.ECHOE | C.ISIG)
 	st.c_oflag &= ^C.tcflag_t(C.OPOST)
+	// Change made by Bastian Faulhaber for operation with binary files
+	st.c_iflag &= ^C.tcflag_t(C.INLCR | C.ICRNL | C.IGNCR | C.IXON | C.IXOFF | C.IXANY)
 
 	_, err = C.tcsetattr(fd, C.TCSANOW, &st)
 	if err != nil {
