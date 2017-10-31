@@ -1,3 +1,13 @@
+Forked version of github.com/johnlauer/goserial.
+
+This version is modified to support sending binary data over the serial port.
+
+This library is a dependency of https://github.com/bastian-f/serial-port-json-server
+the version of the serial-port-json-server to work with binary data.
+
+Below the original README:
+
+
 Forked version of github.com/tarm/goserial
 
 This version supports opening a port with RtsOn or DtrOn.
